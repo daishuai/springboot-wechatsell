@@ -1,0 +1,10 @@
+server:
+  port: 8001
+
+# MySQL数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.103:3306/springboot?useSSL=false&charaterEncoding=utf8&useUnicode=true
+    username: root
+    password: root
