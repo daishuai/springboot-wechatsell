@@ -1,10 +1,35 @@
 server:
   port: 8001
-
+  context-path: /sell
 # MySQL数据源
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.103:3306/springboot?useSSL=false&charaterEncoding=utf8&useUnicode=true
+    url: jdbc:mysql://192.168.1.104:3306/springboot?useSSL=false&charaterEncoding=utf8&useUnicode=true
     username: root
     password: root
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null  #全局配置，属性为null时不返回
+  redis:
+    host: 192.168.1.104
+management:
+  security:
+    enabled: false
+
+#freemarker配置
+#  freemarker:
+#    allow-request-override: false
+#    cache: false
+#    check-template-location: true
+#    charset: UTF-8
+#    content-type: text/html
+#    expose-request-attributes: false
+#    expose-session-attributes: false
+#    expose-spring-macro-helpers: false
+#    prefix:
+#    suffix: .ftl
+#    template-loader-path: classpath:/templates/
+#    view-names:
+

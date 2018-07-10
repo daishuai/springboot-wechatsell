@@ -4,11 +4,12 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * @Description: java类作用描述
+ * @Description: 商品信息
  * @Author: daishuai
  * @CreateDate: 2018/7/1 14:26
  * @Version: 1.0
@@ -16,7 +17,7 @@ import java.util.Date;
  */
 @Entity
 @DynamicUpdate  //动态更新
-public class ProductInfo {
+public class ProductInfo implements Serializable{
 
     @Id
     private String productId; //商品Id
@@ -33,11 +34,7 @@ public class ProductInfo {
 
     private Integer productStatus; //商品状态：0正常，1下架
 
-    private Integer categoryId; //类目编号
-
-    private Date createTime; //创建时间
-
-    private Date updateTime; //更新时间
+    private Integer categoryType; //类目编号
 
     public String getProductId() {
         return productId;
@@ -95,27 +92,12 @@ public class ProductInfo {
         this.productStatus = productStatus;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public Integer getCategoryType() {
+        return categoryType;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryType(Integer categoryType) {
+        this.categoryType = categoryType;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }

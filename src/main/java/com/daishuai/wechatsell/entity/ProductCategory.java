@@ -4,7 +4,9 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -16,19 +18,15 @@ import java.util.Date;
  */
 @Entity
 @DynamicUpdate  //动态更新
-public class ProductCategory {
+public class ProductCategory implements Serializable{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer categoryId; //类目Id
 
     private String categoryName; //类目名称
 
     private Integer categoryType; //类目编号
-
-    private Date createTime; //创建时间
-
-    private Date updateTime; //更新时间
 
     public Integer getCategoryId() {
         return categoryId;
@@ -54,19 +52,4 @@ public class ProductCategory {
         this.categoryType = categoryType;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }

@@ -3,6 +3,8 @@ package com.daishuai.wechatsell.repository;
 import com.daishuai.wechatsell.entity.ProductCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /**
  * @Description: java类作用描述
  * @Author: daishuai
@@ -11,4 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Copyright: Copyright (c) 2018
  */
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Integer>{
+
+    List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
+
 }
